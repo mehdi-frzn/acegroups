@@ -1,0 +1,41 @@
+﻿@model string
+@{
+    ViewBag.Title = "Addimage";
+}
+<section class="panel">
+    <div class="panel-body">
+        @if (Model != null)
+        {
+            <div style="color:red">
+                @Model
+            </div>
+        }
+        @using (Html.BeginForm("Addimage", "admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <table align="center">
+                <tr>
+                    <td>عنوان</td>
+                    <td><input type="text" class="form-control" placeholder="عنوان را وارد کنید" id="inputSuccess" name="title" /></td>
+                </tr>
+                <tr>
+                    <td>مسیر عکس</td>
+                    <td><input type="file" id="imagepath" name="imagepath" /></td>
+                </tr>
+                <tr>
+                    <td>وضعیت</td>
+                    <td>
+                          <input type="checkbox" id="checkbox-01" name="status" />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <input type="submit" id="send" name="send" class="btn btn-info" value="ارسال تصویر" />
+                    </td>
+                   
+                </tr>
+            </table>
+        }
+    </div>
+    
+</section>

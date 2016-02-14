@@ -1,0 +1,45 @@
+﻿@model EF.SliderImage
+@{
+    ViewBag.Title = "edit";
+}
+
+<section class="panel">
+    <div class="panel-body">
+       
+        
+        @using (Html.BeginForm("edit", "admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <table align="center">
+             
+                <tr>
+                    <td>عنوان</td> 
+                    <td><input type="text" class="form-control" placeholder="عنوان را وارد کنید" id="inputSuccess" name="title" value="@Model.Title"/>
+                        <input type="hidden" name="ID" value="@Model.ID" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>مسیر عکس</td>
+                    <td><img src="@Href(Model.ImagePath)" width="200" height="100" /></td>
+                    <td><input type="file" id="imagepath" name="imagepath" /></td>
+                </tr>
+                <tr>
+                    <td>وضعیت</td>
+                    <td>
+                        <input type="checkbox" id="checkbox-01" name="status"value="@Model.Status" />
+                        <input type="hidden" name="path" value="@Model.ImagePath" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <input type="submit" class="btn btn-info" id="send" name="send" value="ارسال تصویر" />
+                        
+                    </td>
+
+                </tr>
+            </table>
+        }
+    </div>
+
+</section>
+
+

@@ -1,0 +1,44 @@
+﻿@model List<EF.SliderImage>
+@{
+    ViewBag.Title = "select";
+}
+
+<table class="table">
+    <tr>
+        <th align="center">
+            عنوان
+        </th>
+        <th align="center">
+            عکس
+
+        </th>
+        <th align="center">
+            وضعیت
+        </th>
+        <th>
+            عملیات
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Title
+            </td>
+            <td>
+                <img src="@Href(item.ImagePath)" style="width:200px;height:100px" />
+            </td>
+            <td>
+                <input type="checkbox" id="checked" name="checked" checked="@item.Status" />
+            </td>
+            <td>
+                <a href="~/dashboard/admin/edit/@item.ID">ویرایش</a>
+                <a href="~/dashboard/admin/delete/@item.ID">حذف</a>
+            </td>
+
+        </tr>
+    }
+
+</table>
+
